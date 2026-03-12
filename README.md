@@ -47,7 +47,7 @@ Since the task explicitly prefers PaaS components, I would not choose AKS as the
 
 ---
 
-## 3. PaaS / SaaS Components
+## 3. PaaS Components
 
 The following Azure services would be used:
 
@@ -57,11 +57,6 @@ The following Azure services would be used:
 - Azure Key Vault
 - Azure Monitor / Application Insights
 - GitHub Actions or Azure DevOps Pipelines
-
-Optional supporting services:
-
-- Azure Container Registry (if containerization is later required)
-- Azure Storage Account (for Terraform state)
 
 ---
 
