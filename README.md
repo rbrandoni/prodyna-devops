@@ -23,11 +23,11 @@ The solution should fulfill the following requirements:
 
 ## 2. Solution Design
 
-## Architecture Diagram
+### Architecture Diagram
 
 ![Azure Architecture](architecture/azure-cloud-architecture.png)
 
-## Preferred solution
+### Preferred solution
 
 I would choose the following Azure-based PaaS architecture:
 
