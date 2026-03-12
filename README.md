@@ -23,6 +23,9 @@ The solution should fulfill the following requirements:
 
 ## 2. Solution Design
 
+## Architecture Diagram
+
+
 ## Preferred solution
 
 I would choose the following Azure-based PaaS architecture:
