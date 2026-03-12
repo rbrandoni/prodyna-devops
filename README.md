@@ -119,3 +119,89 @@ prodyna-devops-challenge
 │   ├── ci.yml
 │   └── cd.yml
 └── presentation/
+
+
+## 6. Implementation – Architect Perspective
+
+### Infrastructure Code Repository Structure
+
+The repository is structured to clearly separate infrastructure code, pipelines and documentation.
+
+prodyna-devops-challenge
+│
+├── README.md
+├── architecture/
+│   └── azure-cloud-architecture.png
+│
+├── terraform/
+│   ├── dev/
+│   ├── staging/
+│   └── prod/
+│
+├── pipelines/
+│   ├── ci.yml
+│   └── cd.yml
+│
+└── presentation/
+
+Terraform is used to provision infrastructure for the three stages (dev, staging and prod).  
+This structure allows independent deployments for each environment while keeping the infrastructure code organized and maintainable.
+
+Different technologies are clearly separated:
+- infrastructure code (Terraform)
+- pipeline definitions (CI/CD)
+- architecture documentation
+- presentation material
+
+
+### CD Tooling
+
+For this solution I would primarily use a push-based deployment approach using GitHub Actions or Azure DevOps Pipelines.
+
+Push-based pipelines are well suited for PaaS architectures because infrastructure provisioning and application deployments can be triggered automatically after code changes.
+
+For Kubernetes-based environments a pull-based GitOps approach could also be considered using tools like ArgoCD or Flux. In such a setup the cluster continuously synchronizes its desired state from the Git repository.
+
+Since this solution relies on Azure PaaS services, a push-based pipeline approach is the simpler and more pragmatic choice.
+
+
+### Branching Strategy
+
+A simple GitFlow-inspired branching strategy would be used.
+
+main  
+Represents the production-ready state of the infrastructure and application.
+
+develop  
+Integration branch where new features and infrastructure changes are combined and validated.
+
+feature/*  
+Used for development of new features or infrastructure modifications.
+
+Developers work in feature branches and create Pull Requests to merge changes into the develop branch.  
+After successful validation and testing, changes are merged into the main branch for production deployment.
+
+
+### Merge Strategy
+
+All changes must be merged via Pull Requests.
+
+The main branch is protected and requires:
+
+- at least one code review
+- successful CI pipeline execution
+- no direct commits allowed
+
+Production deployments are triggered only from the main branch.  
+This ensures that only validated and reviewed changes reach the production environment.
+
+
+### Infrastructure Traceability
+
+To ensure that the deployed infrastructure always matches the repository state, all infrastructure changes are managed via Terraform and versioned in Git.
+
+Infrastructure deployments are executed exclusively through CI/CD pipelines.
+
+The Terraform state would be stored centrally (for example in Azure Storage), enabling comparison between the Git repository, pipeline runs and the deployed infrastructure.
+
+This approach guarantees that every infrastructure version can be traced back to a specific Git commit and pipeline execution, ensuring full transparency and reproducibility.
