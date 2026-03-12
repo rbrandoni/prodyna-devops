@@ -106,6 +106,7 @@ Terraform is used to provision:
 
 The repository is structured as follows:
 
+```text
 prodyna-devops-challenge
 │
 ├── README.md
