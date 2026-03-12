@@ -122,6 +122,7 @@ prodyna-devops-challenge
 └── presentation/
 ```
 
+---
 
 ## 6. Implementation – Architect Perspective
 
@@ -190,3 +191,110 @@ Infrastructure deployments are executed exclusively through CI/CD pipelines.
 The Terraform state would be stored centrally (for example in Azure Storage), enabling comparison between the Git repository, pipeline runs and the deployed infrastructure.
 
 This approach guarantees that every infrastructure version can be traced back to a specific Git commit and pipeline execution, ensuring full transparency and reproducibility.
+
+---
+
+## 7. Implementation – Engineer Perspective
+
+### 7.1 PaaS and SaaS Components
+
+The following Azure PaaS and SaaS services would be used to implement the solution:
+
+**Azure Static Web Apps**  
+Used to host the Vue.js frontend application. This service provides global CDN integration, automatic scaling and simplified deployment.
+
+**Azure App Service**  
+Hosts the Node.js backend API. App Service allows easy scaling, managed runtime environments and seamless integration with other Azure services.
+
+**Azure Cosmos DB (MongoDB API)**  
+Used as the NoSQL database for the application. Cosmos DB provides automatic scaling, high availability and global distribution capabilities.
+
+**Azure Key Vault**  
+Stores secrets, connection strings and credentials securely.
+
+**Azure Monitor & Application Insights**  
+Used for monitoring, logging and performance analysis of both frontend and backend services.
+
+**CI/CD Platform (GitHub Actions or Azure DevOps Pipelines)**  
+Used to automate infrastructure provisioning, application builds and deployments.
+
+
+### 7.2 Terraform Project Structure
+
+For the three stages (dev, staging and prod), I would use separate Terraform configurations.
+
+This allows infrastructure changes to be deployed independently per environment while keeping the configuration consistent.
+
+Example structure:
+
+terraform/
+├── dev/
+├── staging/
+└── prod/
+
+Each environment contains its own Terraform configuration and variables.
+
+Terraform would provision:
+
+- Resource Groups
+- Azure App Service
+- Azure Static Web Apps
+- Azure Cosmos DB
+- Azure Key Vault
+- Monitoring resources
+
+
+### 7.3 Branching and Deployment Strategy
+
+To ensure all environments use the same application and infrastructure versions, deployments are controlled through the Git workflow.
+
+Typical flow:
+
+feature branch → develop → main
+
+Feature branches are used for development work.  
+After review, they are merged into the develop branch for integration testing.
+
+Deployments:
+
+- **dev environment** deploys automatically from the develop branch
+- **staging environment** deploys after validation
+- **production environment** deploys only from the main branch
+
+
+### 7.4 Production Deployment Approval
+
+To protect the production environment, deployments to production require manual approval.
+
+This can be implemented in CI/CD pipelines using approval gates.
+
+Typical flow:
+
+1. Code is merged into the **main branch**
+2. The pipeline builds the application and prepares the deployment
+3. A **manual approval step** is required before deploying to production
+4. After approval, Terraform and application deployment steps are executed
+
+
+### 7.5 Example CI/CD Pipeline (Pseudo Code)
+
+Example simplified pipeline workflow:
+
+CI Pipeline:
+
+- Checkout repository
+- Install dependencies
+- Build Vue.js frontend
+- Run backend tests
+- Build application artifacts
+
+CD Pipeline:
+
+- Terraform init
+- Terraform plan
+- Terraform apply (infrastructure provisioning)
+- Deploy frontend to Azure Static Web Apps
+- Deploy backend to Azure App Service
+- Run post-deployment checks
+
+This pipeline ensures that infrastructure and application deployments are fully automated and reproducible.
