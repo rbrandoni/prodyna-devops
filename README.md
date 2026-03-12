@@ -119,6 +119,7 @@ prodyna-devops-challenge
 │   ├── ci.yml
 │   └── cd.yml
 └── presentation/
+```text
 
 
 ## 6. Implementation – Architect Perspective
