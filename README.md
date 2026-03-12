@@ -42,6 +42,7 @@ I would choose the following Azure-based PaaS architecture:
 This architecture minimizes operational overhead by using managed Azure services.  
 It supports fast deployments, easy scaling and reduced maintenance effort.  
 It is especially suitable for teams that want to focus on development speed and reliability instead of managing infrastructure manually.
+
 The cloud-native architecture together with automated CI/CD pipelines enables fast development cycles and rapid feature delivery.
 
 ### Alternative solution
