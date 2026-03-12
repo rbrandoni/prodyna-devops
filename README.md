@@ -227,10 +227,12 @@ This allows infrastructure changes to be deployed independently per environment 
 
 Example structure:
 
+```text
 terraform/
 ├── dev/
 ├── staging/
 └── prod/
+```
 
 Each environment contains its own Terraform configuration and variables.
 
