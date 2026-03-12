@@ -25,6 +25,7 @@ The solution should fulfill the following requirements:
 
 ## Architecture Diagram
 
+![Azure Architecture](architecture/azure-cloud-architecture.png)
 
 ## Preferred solution
 
