@@ -42,6 +42,7 @@ I would choose the following Azure-based PaaS architecture:
 This architecture minimizes operational overhead by using managed Azure services.  
 It supports fast deployments, easy scaling and reduced maintenance effort.  
 It is especially suitable for teams that want to focus on development speed and reliability instead of managing infrastructure manually.
+The cloud-native architecture together with automated CI/CD pipelines enables fast development cycles and rapid feature delivery.
 
 ### Alternative solution
 
@@ -61,6 +62,10 @@ The following Azure services would be used:
 - Azure Key Vault
 - Azure Monitor / Application Insights
 - GitHub Actions or Azure DevOps Pipelines
+
+The CI/CD pipeline automates both infrastructure provisioning and application deployment.
+Terraform is executed through the pipeline to provision or update infrastructure.
+The Vue.js frontend and Node.js backend are built automatically and deployed to Azure services after successful builds.
 
 ---
 
