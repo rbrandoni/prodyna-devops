@@ -111,6 +111,7 @@ prodyna-devops-challenge
 │
 ├── README.md
 ├── architecture/
+│   └── azure-cloud-architecture.png
 ├── terraform/
 │   ├── dev/
 │   ├── staging/
@@ -126,24 +127,7 @@ prodyna-devops-challenge
 
 ### Infrastructure Code Repository Structure
 
-The repository is structured to clearly separate infrastructure code, pipelines and documentation.
-
-prodyna-devops-challenge
-│
-├── README.md
-├── architecture/
-│   └── azure-cloud-architecture.png
-│
-├── terraform/
-│   ├── dev/
-│   ├── staging/
-│   └── prod/
-│
-├── pipelines/
-│   ├── ci.yml
-│   └── cd.yml
-│
-└── presentation/
+The repository structure described above separates infrastructure code, pipelines and documentation.
 
 Terraform is used to provision infrastructure for the three stages (dev, staging and prod).  
 This structure allows independent deployments for each environment while keeping the infrastructure code organized and maintainable.
