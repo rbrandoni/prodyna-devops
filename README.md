@@ -1,4 +1,4 @@
-# PRODYNA DevOps Task
+# PRODYNA Cloud Engineering Task
 
 This repository contains my solution for the PRODYNA DevOps / Automation Engineer task.
 
