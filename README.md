@@ -1,4 +1,4 @@
-# PRODYNA DevOps Challenge
+# PRODYNA DevOps Project
 
 This repository contains my solution for the PRODYNA DevOps / Automation Engineer task.
 
