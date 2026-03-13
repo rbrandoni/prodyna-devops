@@ -309,4 +309,4 @@ The architecture and solution are also summarized in the presentation used for t
 
 You can find the slides here:
 
-[presentation/prodyna-azure-architecture-presentation.pptx](presentation/prodyna-azure-architecture-presentation.pptx)
+[presentation/prodyna_praesentation.pptx](presentation/prodyna_praesentation.pptx)
