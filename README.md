@@ -305,8 +305,6 @@ This pipeline ensures that infrastructure and application deployments are fully 
 
 ## Presentation
 
-The architecture and solution are also summarized in the presentation used for the technical interview.
+The architecture and solution are summarized in the presentation used for the technical interview.
 
-You can find the slides here:
-
-[presentation/prodyna_praesentation_final.pptx](presentation/prodyna_praesentation_final.pptx)
+[Open the presentation](presentation/Prodyna_Praesentation_final.pptx)
