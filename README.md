@@ -309,4 +309,4 @@ The architecture and solution are also summarized in the presentation used for t
 
 You can find the slides here:
 
-[presentation/prodyna_praesentation.pptx](presentation/prodyna_praesentation.pptx)
+[presentation/prodyna_praesentation_final.pptx](presentation/prodyna_praesentation_final.pptx)
