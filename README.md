@@ -307,4 +307,4 @@ This pipeline ensures that infrastructure and application deployments are fully 
 
 The architecture and solution are summarized in the presentation used for the technical interview.
 
-[Open the presentation](presentation/Prodyna_Praesentation_final.pptx)
+[Open the presentation](presentation/prodyna_cloud_engineering_task_presentation.pdf)
